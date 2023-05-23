@@ -1,12 +1,3 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-#
 # Complete the 'insertionSort1' function below.
 #
 # The function accepts following parameters:
@@ -17,15 +8,17 @@ import sys
 def insertionSort1(n, arr):
     # Write your code here
     sort_val = arr[-1]
+    comp_val = n-2
     
-    for i in reversed(range(1, n)):
-        if arr[i-1] > sort_val:
-            arr[i] = arr[i-1]
-            print(*arr)
-        else:
-            arr[i] = sort_val
-            print(*arr)
-
+    while (sort_val < arr[comp_val]) and (comp_val >= 0):
+        arr[comp_val+1] = arr[comp_val]
+        print(*arr)
+        comp_val -= 1
+    
+    arr[comp_val+1] = sort_val
+    print(*arr)
+    
+    
 if __name__ == '__main__':
     n = int(input().strip())
 
